@@ -45,6 +45,15 @@ class Event < ActiveRecord::Base
     super
   end
 
+  def as_json(*args)
+    {
+        duration: duration / 3600.0,
+        project: project ? project.name : 'Project N/A',
+        description: description,
+        id: id
+    }
+  end
+
   private
   def less_than_an_hour?
     hours < 1

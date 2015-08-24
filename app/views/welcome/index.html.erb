@@ -10,7 +10,7 @@
   <div class="col-md-offset-3 col-md-6 col-xs-12">
     <table id="userEventsTable"
            class="table table-striped table-bordered table-responsive"
-           data-source="<%= events_path format: 'json' %>">
+           data-source="<%= data_table_events_path format: 'json' %>">
 
       <thead>
       <tr>
@@ -27,3 +27,5 @@
     </table>
   </div>
 </div>
+
+<%= react_component('Day', date: @date.to_s, url: events_url(date: @date, format: :json), pollInterval: 2000) %>

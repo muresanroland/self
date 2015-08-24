@@ -46,6 +46,8 @@ gem 'axlsx_rails'
 gem 'axlsx_styler'
 gem 'daemons'
 
+gem 'react-rails', '~> 1.0'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'puma'

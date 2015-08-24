@@ -35,5 +35,9 @@ module Aggregate
     def total_amount
       sum(:amount)
     end
+
+    def around(date)
+      ((date - 2.days)..(date + 2.days)).inject({}) { |h, d| h[d] = at(d).all || []; h }
+    end
   end
 end

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :events, only: [:create, :update, :destroy, :index]
+  resources :events, only: [:create, :update, :destroy, :index] do
+    collection do
+      get :data_table
+    end
+  end
   resources :vacation_requests, only: [:create, :update, :destroy]
 
   namespace :admin do
