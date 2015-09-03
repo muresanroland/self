@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get :data_table
     end
+
+    member do
+      get :data_table
+    end
   end
   resources :vacation_requests, only: [:create, :update, :destroy]
 
