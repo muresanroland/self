@@ -36,8 +36,21 @@ module Aggregate
       sum(:amount)
     end
 
-    def around(date)
-      ((date - 2.days)..(date + 2.days)).inject({}) { |h, d| h[d] = at(d).all || []; h }
+    def around(date, r=2)
+      ((date - r.days)..(date + r.days)).inject({}) { |h, d| h[d] = at(d).all || []; h }
+    end
+
+    def date_stats_from_beginning_of_month(date)
+      events = Event.where('worked_at >= ? AND worked_at <= ?', date.beginning_of_month, date.end_of_month)
+      dates = Hash.new
+
+      (date.beginning_of_month..date.end_of_month).each { |d| dates[d] = false }
+      events.pluck(:worked_at).uniq.each { |e| dates[e] = true }
+
+      {
+          current_date: date,
+          dates: dates
+      }
     end
   end
 end
