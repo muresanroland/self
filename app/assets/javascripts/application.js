@@ -11,15 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require materialize-sprockets
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require bootstrap-datepicker/core
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
 //= require select2
 //= require_tree .
+
+$(document).ready(function(){
+    $('.menu-sidebar-collapse').click(function(e){
+        e.preventDefault();
+        $('#left-sidebar-nav').toggleClass('open');
+    });
+});

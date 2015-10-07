@@ -3,11 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  $('.datepicker-container input.datepicker').customDatepicker {}
+  # $('.datepicker-container input.datepicker').customDatepicker {}
 
-  $('.datepicker-trigger').on 'click', (e)->
-    e.preventDefault()
-    $this = $(this)
-    window.location = $this.data('target') + '?date=' + $('.datepicker-container input.datepicker').val()
+  # $('.datepicker-trigger').on 'click', (e)->
+  #   e.preventDefault()
+  #   $this = $(this)
+  #   window.location = $this.data('target') + '?date=' + $('.datepicker-container input.datepicker').val()
 
-  $('select').select2()
+  # $('select').select2()

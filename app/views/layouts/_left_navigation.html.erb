@@ -1,0 +1,26 @@
+<% if current_user %>
+    <aside id="left-sidebar-nav">
+        <ul id="slide-out" class="side-nav leftside-navigation ps-container ps-active-y">
+            <li class="user-details blue lighten-2">
+                    <% image_tag('bws_logo.png', alt: 'BWS') %>
+                    <div class="row">
+                        <div class="col col s4 m4 l4">
+                            <img class= "circle responsive-img valign profile-image" src="<%= current_user.profile_picture %>" alt="PP">
+                        </div>
+                        <div class="col col s8 m8 l8">
+                            <a class="white-text center" href="/"> <%= current_user.first_name %></a>
+                            <% if current_user.admin? %>
+                                <p class="user-roal center">Administrator</p>
+                            <% else %>
+                                <p class="user-roal center">Hard worker</p>
+                            <% end %>
+                        </div>
+                    </div>
+            </li>
+            <% if current_user.admin? %>
+                <li class="waves-effect waves-blue waves-blue"> <%= link_to 'Admin', admin_dashboard_path %></li>
+            <% end %>
+            <li class="waves-effect waves-blue"> <%= link_to 'Log out', destroy_user_session_path, method: :delete %> </li>
+        </ul>
+    </aside>
+<% end %>

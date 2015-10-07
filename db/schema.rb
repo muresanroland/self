@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150903175017) do
     t.integer  "minutes",                              default: 0,            null: false
     t.datetime "created_at",                                                  null: false
     t.datetime "updated_at",                                                  null: false
-    t.date     "worked_at",                            default: '2015-03-18', null: false
+    t.date     "worked_at",                            default: '2015-04-23', null: false
     t.integer  "user_id"
     t.integer  "project_id"
     t.decimal  "amount",      precision: 14, scale: 6, default: 0.0
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 20150903175017) do
     t.datetime "updated_at"
     t.integer  "length",        default: 0
     t.boolean  "paid",          default: true
-    t.text     "reason",                       null: false
+    t.text     "reason",        default: "",   null: false
     t.integer  "admin_id"
   end
 

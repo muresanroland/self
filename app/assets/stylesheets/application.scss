@@ -12,16 +12,32 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap-datepicker3
  *= require dataTables/jquery.dataTables
  *= require select2
- *= require select2-bootstrap
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "materialize/components/color";
+@import "materialize";
 
-body { padding-top: 70px; }
+// set base color of the templates
+$primary-color: color("blue") !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+
+@if not $primary-color-light {
+    $primary-color-light: lighten($primary-color, 15%);
+}
+
+@if not $primary-color-dark {
+    $primary-color-dark: darken($primary-color, 15%);
+}
+
+$secondary-color: color("teal", "lighten-1") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+
+
+// body { padding-top: 70px; }
 
 .distancer { padding: 10px;}
 
@@ -46,4 +62,14 @@ body { padding-top: 70px; }
 p {
   word-wrap: break-word;
   white-space: normal;
+}
+
+.no-hover {
+    &:hover {
+        background: transparent;
+    }
+}
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(100, 181, 246, .65);
 }

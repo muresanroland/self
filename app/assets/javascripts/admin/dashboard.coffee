@@ -30,8 +30,8 @@ ready = ->
     table.fnDraw()
     return
 
-  fromDate.customDatepicker {}
-  toDate.customDatepicker {}
+  # fromDate.customDatepicker {}
+  # toDate.customDatepicker {}
 
 $(document).ready ready
 $(document).on 'page:load', ready

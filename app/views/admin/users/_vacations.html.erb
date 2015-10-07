@@ -4,7 +4,7 @@
       <div class="panel-heading"><h4><%= "Paid Vacation Days Left: #{@user.vacation_days_left}" %></h4></div>
       <div class="panel-heading desktop"><h4>Paid Vacation Days Limit: <%= render partial: 'vacation_limit_form' %></h4></div>
 
-      <div class="list-group" id=vacationForUser data-turbolinks-temporary>
+      <div class="list-group" id=vacationForUser>
         <% @user.vacation_requests.pending.each do |vacation| %>
           <div class="list-group-item" id="vacationInfo<%= vacation.id %>">
             <div class="row">
